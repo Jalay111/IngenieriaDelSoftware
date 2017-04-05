@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+    <meta charset="utf-8">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+		integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/Cocomobasico.css" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Cocomo Basico</title>
+  	<SCRIPT LANGUAGE="JavaScript">
+  		function redondeo(num)
+  		{
+  			var original= parseFloat(num);
+  			var resul= Math.round(original*100)/100;
+  			return(resul);
+  		}
+  	</SCRIPT>
+  	<META NAME="Generator" CONTENT="Stone's WebWriter 3.5">
+	</HEAD>
+	<BODY>
+		<SCRIPT LANGUAGE="JavaScript">
+			function calcular()
+			{
+				var num,total=0;
+				for (i=0;i<document.MBasico.Modo.length;i++)
+				{
+					if (document.MBasico.Modo[i].checked)
+						break;
+				}
+				num= document.MBasico.Modo[i].value;
+
+				if (num==1)
+					total= 2.4*Math.pow(document.MBasico.Sk.value,1.05);
+				else if (num==2)
+					total= 3.0*Math.pow(document.MBasico.Sk.value,1.12);
+				else total= 3.6*Math.pow(document.MBasico.Sk.value,1.20);
+				document.MBasico.resultado.value= redondeo(total);
+			}
+		</SCRIPT>
+
+    <a id="atras" href="index.html"><i class="icon icon-chevron-with-circle-left"></i></a>
+		<h2 id="titulo">Realizacion de la estimacion</h2>
+    <hr id="_1">
+		<form NAME="MBasico">
+      <div id="tamaño" class="">
+        <h3>Tamaño de la aplicacion</h3>
+        Tamaño de la aplicacion:
+        <input class="form-control" type="number" name="Sk"> KLOC
+      </div>
+
+      <hr id="_2">
+      <div id="tipo" class="">
+        <h3>Seleccionar tipo de aplicacion</h3>
+        <table>
+          <tr><th><input type="radio" name="Modo" value="1" CHECKED> <th aling="left">Modo organico
+          <tr><th><input type="radio" name="Modo" value="2"> <th aling="left">Modo semiacoplado
+          <tr><th><input type="radio" name="Modo" value="3"> <th aling="left">Modo empotrado
+        </table>
+      </div>
+
+      <span id="span_resultado"></span>
+      <div id="resultado" class="">
+        <h3>Esfuerzo obtenido</h3>
+        <INPUT class="btn btn-info" TYPE="button" VALUE="CALCULAR" ONCLICK="calcular()">
+        <INPUT id="resultado" class="form-control" TYPE="number" NAME="resultado">
+        <i>personas/mes</i>
+      </div>
+
+      <span id="span_empleados"></span>
+      <div id="empleados" class="">
+        <h3>Tiempo estimado a partir de numero de Empleados</h3>
+        <TABLE>
+          <TR><TH>Numero de personas:<TH><INPUT TYPE="number" NAME="person" STYLE="background-color: 'yellow';">
+			    <TR><TH><INPUT class="  btn btn-primary" TYPE="button" VALUE="CALCULAR" ONCLICK="JavaScript:document.MBasico.tiempo.value= 			redondeo(document.MBasico.resultado.value/document.MBasico.person.value);">
+			    <TH ALIGN="left"><INPUT id="meses" TYPE="number" NAME="tiempo" VALUE='' STYLE="background-color:'yellow';"> meses
+        </TABLE>
+      </div>
+</FORM>
+	</BODY>
+</HTML>

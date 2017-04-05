@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+		integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/Cocomointermedio.css" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css"/>
+
+		<title>Cocomo Intermedio</title>
+		<script languaje="JavaScript">
+			function redondeo(num){
+				var original= parseFloat(num);
+				var resul= Math.round(original*100)/100;
+				return(resul);
+			}
+		</script>
+		<meta name="Generator" content="Stone's WebWriter 3.5">
+	</head>
+
+	<body>
+		<script languaje="JavaScript">
+			function calcular(){
+				var CosteNom, i, termino, num, Ajuste=1;
+				for (i=0;i<document.MInterm.Modo.length;i++)
+				{
+					if (document.MInterm.Modo[i].checked)
+						break;
+				}
+				num= document.MInterm.Modo[i].value;
+
+				if (num==1)
+					CosteNom= 3.2*Math.pow(document.MInterm.Sk.value,1.05);
+				else if (num==2)
+					CosteNom= 3.0*Math.pow(document.MInterm.Sk.value,1.12);
+				else if (num==3)
+					CosteNom= 2.8*Math.pow(document.MInterm.Sk.value,1.20);
+
+				for (i=0;i<document.MInterm.RELY.length;i++)
+				{
+					if (document.MInterm.RELY[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.RELY[i].value;
+
+				for (i=0;i<document.MInterm.DATA.length;i++)
+				{
+					if (document.MInterm.DATA[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.DATA[i].value;
+
+				for (i=0;i<document.MInterm.CPLX.length;i++)
+				{
+					if (document.MInterm.CPLX[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.CPLX[i].value;
+
+				for (i=0;i<document.MInterm.TIME.length;i++)
+				{
+					if (document.MInterm.TIME[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.TIME[i].value;
+
+				for (i=0;i<document.MInterm.STOR.length;i++)
+				{
+					if (document.MInterm.STOR[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.STOR[i].value;
+
+				for (i=0;i<document.MInterm.VIRT.length;i++)
+				{
+					if (document.MInterm.VIRT[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.VIRT[i].value;
+
+				for (i=0;i<document.MInterm.TURN.length;i++)
+				{
+					if (document.MInterm.TURN[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.TURN[i].value;
+
+				for (i=0;i<document.MInterm.ACAP.length;i++)
+				{
+					if (document.MInterm.ACAP[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.ACAP[i].value;
+
+				for (i=0;i<document.MInterm.AEXP.length;i++)
+				{
+					if (document.MInterm.AEXP[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.AEXP[i].value;
+
+				for (i=0;i<document.MInterm.PCAP.length;i++)
+				{
+					if (document.MInterm.PCAP[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.PCAP[i].value;
+
+				for (i=0;i<document.MInterm.VEXP.length;i++)
+				{
+					if (document.MInterm.VEXP[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.VEXP[i].value;
+
+				for (i=0;i<document.MInterm.LEXP.length;i++)
+				{
+					if (document.MInterm.LEXP[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.LEXP[i].value;
+
+				for (i=0;i<document.MInterm.MODP.length;i++)
+				{
+					if (document.MInterm.MODP[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.MODP[i].value;
+
+				for (i=0;i<document.MInterm.TOOL.length;i++)
+				{
+					if (document.MInterm.TOOL[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.TOOL[i].value;
+
+				for (i=0;i<document.MInterm.SCED.length;i++)
+				{
+					if (document.MInterm.SCED[i].checked)
+						break;
+				}
+				Ajuste*= document.MInterm.SCED[i].value;
+				Ajuste= redondeo(Ajuste);
+				document.MInterm.resultado.value= redondeo(CosteNom*Ajuste);
+			}
+		</script>
+
+		<a id="atras" href="index.html"><i class="icon icon-chevron-with-circle-left"></i></a>
+		<h2 id="titulo">Realizacion de la estimacion</h2>
+		<hr id="_1">
+		<form name="MInterm">
+
+				<div id="tamaño" class="">
+					<h3>Tamaño de la aplicacion</h3>
+	        Tamaño de la aplicacion:
+	        <input class="form-control" type="number" name="Sk"> KLOC
+				</div>
+
+				<hr id="_2">
+				<div id="tipo" class="">
+					<h3>Seleccinar tipo de aplicacion</h3>
+	  		  <table>
+	  			  <tr><th><input type="radio" name="Modo" value="1" CHECKED> <th aling="left">Modo organico
+	  			  <tr><th><input type="radio" name="Modo" value="2"> <th aling="left">Modo semiacoplado
+	  			  <tr><th><input type="radio" name="Modo" value="3"> <th aling="left">Modo empotrado
+	  		  </table>
+				</div>
+
+				<div id="tabla" class="">
+					<h3>Seleccion de los grados de influencia</h3>
+	    		<table class="table table-responsive table-hover">
+	          <thead>
+	            <tr>
+	              <th>Atributos de coste</th>
+	              <th>Muy bajo</th>
+	              <th>Bajo</th>
+	              <th>Nominal</th>
+	              <th>Alto</th>
+	              <th>Muy alto</th>
+	              <th>Extremadamente alto</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr>
+	              <th>Fiabilidad requerida</th>
+	              <th><input type="radio" name="RELY" value=0.75 CHECKED></th>
+	              <th><input type="radio" name="RELY" value=0.88></th>
+	              <th><input type="radio" name="RELY" value=1></th>
+	              <th><input type="radio" name="RELY" value=1.15></th>
+	              <th><input type="radio" name="RELY" value=1.40></th>
+	              <th></th>
+	            </tr>
+
+		          <tr>
+		            <TH>Tamaño de BD
+		            <TH>
+		            <TH><INPUT TYPE="radio" NAME="DATA" VALUE=0.94 CHECKED>
+		            <TH><INPUT TYPE="radio" NAME="DATA" VALUE=1.00>
+		            <TH><INPUT TYPE="radio" NAME="DATA" VALUE=1.08>
+		      			<TH><INPUT TYPE="radio" NAME="DATA" VALUE=1.16>
+		            <th></th>
+		          </tr>
+
+		    			<TR>
+								<TH>Complejidad
+		    				<TH><INPUT TYPE="radio" NAME="CPLX" CHECKED VALUE=0.70>
+								<TH><INPUT TYPE="radio" NAME="CPLX" VALUE=0.85>
+								<TH><INPUT TYPE="radio"NAME="CPLX" VALUE=1.00>
+								<TH><INPUT TYPE="radio" NAME="CPLX" VALUE=1.15>
+								<TH><INPUT TYPE="radio"	NAME="CPLX" VALUE=1.30>
+								<TH> <INPUT TYPE="radio" NAME="CPLX" VALUE=1.65>
+							</tr>
+
+							<TR>
+								<TH>Restriccion de tiempo de ejecucion
+								<TH>
+								<TH>
+		    				<TH><INPUT TYPE="radio" NAME="TIME" VALUE=1.00 CHECKED>
+								<TH><INPUT TYPE="radio" NAME="TIME" VALUE=1.11>
+								<TH><INPUT TYPE="radio" NAME="TIME" VALUE=1.30>
+								<TH><INPUT TYPE="radio" NAME="TIME"	VALUE=1.66>
+							</tr>
+
+							<TR>
+								<TH>Restriccion de memoria
+								<TH>
+								<TH>
+		    				<TH><INPUT TYPE="radio" NAME="STOR" VALUE=1.00 CHECKED>
+								<TH><INPUT TYPE="radio" NAME="STOR" VALUE=1.06>
+								<TH><INPUT	TYPE="radio" NAME="STOR" VALUE=1.21>
+								<TH><INPUT TYPE="radio" NAME="STOR" VALUE=1.56>
+							</tr>
+
+							<TR>
+								<TH>Volatilidad de la maquina virtual
+		    				<TH>
+								<TH><INPUT NAME="VIRT" TYPE="radio" VALUE=0.87 CHECKED>
+								<TH><INPUT TYPE="radio" NAME="VIRT" VALUE=1.00>
+								<TH><INPUT TYPE="radio" NAME="VIRT" VALUE=1.15>
+								<TH><INPUT TYPE="radio" NAME="VIRT" VALUE=1.30>
+								<TH>
+							</tr>
+
+							<TR>
+								<TH>Tiempo de espera
+								<TH>
+								<TH><INPUT NAME="TURN" TYPE="radio" VALUE=0.87 CHECKED>
+								<TH><INPUT TYPE="radio" NAME="TURN" VALUE=1.00>
+								<TH> <INPUT TYPE="radio" NAME="TURN" VALUE=1.07>
+								<TH><INPUT TYPE="radio" NAME="TURN" VALUE=1.15>
+								<TH>
+							</tr>
+
+							<TR>
+								<TH>Habilidad del analista
+								<TH><INPUT TYPE="radio" NAME="ACAP" CHECKED VALUE=1.46>
+								<TH> <INPUT TYPE="radio" NAME="ACAP" VALUE=1.19>
+								<TH><INPUT TYPE="radio" NAME="ACAP" VALUE=1.00>
+								<TH><INPUT TYPE="radio" NAME="ACAP" VALUE=0.86>
+								<TH><INPUT TYPE="radio" NAME="ACAP" VALUE=0.71>
+								<TH>
+							</tr>
+
+							<TR>
+								<TH> Experiencia en la aplicacion
+								<TH><INPUT TYPE="radio" NAME="AEXP" CHECKED VALUE=1.29>
+								<TH><INPUT TYPE="radio" NAME="AEXP" VALUE=1.13>
+								<TH><INPUT TYPE="radio" NAME="AEXP" VALUE=1.00>
+		    				<TH><INPUT TYPE="radio" NAME="AEXP" VALUE=0.91>
+								<TH><INPUT TYPE="radio" NAME="AEXP" VALUE=0.82>
+								<TH>
+							</tr>
+
+							<TR>
+								<TH>Habilidad del programador
+								<TH><INPUT TYPE="radio" NAME="PCAP" VALUE=1.42 CHECKED>
+								<TH><INPUT TYPE="radio" NAME="PCAP" VALUE=1.17>
+		    				<TH><INPUT TYPE="radio" NAME="PCAP" VALUE=1.00>
+								<TH><INPUT TYPE="radio" NAME="PCAP" VALUE=0.86>
+								<TH><INPUT TYPE="radio" NAME="PCAP" VALUE=0.7>
+								<TH>
+							</tr>
+
+							<TR>
+								<TH>Experiencia en la MV
+								<TH><INPUT TYPE="radio" NAME="VEXP" VALUE=1.21 CHECKED>
+								<TH><INPUT TYPE="radio" NAME="VEXP" VALUE=1.10>
+								<TH><INPUT TYPE="radio" NAME="VEXP" VALUE=1.00>
+								<TH><INPUT TYPE="radio" NAME="VEXP" VALUE=0.90>
+								<TH>
+								<TH>
+							</tr>
+
+							<TR>
+								<TH>Experiencia en el lenguaje
+								<TH><INPUT TYPE="radio" NAME="LEXP" CHECKED VALUE=1.14>
+								<TH> <INPUT TYPE="radio" NAME="LEXP" VALUE=1.07>
+								<TH><INPUT TYPE="radio" NAME="LEXP" VALUE=1.00>
+								<TH><INPUT TYPE="radio" NAME="LEXP" VALUE=0.95>
+								<TH>
+								<TH>
+							</tr>
+
+							<TR>
+								<TH>Uso de modernas practicas de programacion
+								<TH><INPUT TYPE="radio" NAME="MODP" CHECKED VALUE=1.24>
+								<TH><INPUT TYPE="radio" NAME="MODP" VALUE=1.10>
+								<TH><INPUT TYPE="radio" NAME="MODP" VALUE=1.00>
+								<TH><INPUT TYPE="radio" NAME="MODP" VALUE=0.91>
+								<TH><INPUT TYPE="radio" NAME="MODP" VALUE=0.82>
+								<TH>
+							</tr>
+
+							<TR>
+								<TH>Utilizaci�n de herramientas
+								<TH><INPUT TYPE="radio" NAME="TOOL" CHECKED VALUE=1.24>
+								<TH><INPUT TYPE="radio" NAME="TOOL" VALUE=1.10>
+								<TH><INPUT TYPE="radio" NAME="TOOL" VALUE=1.00>
+								<TH><INPUT TYPE="radio" NAME="TOOL" VALUE=0.91>
+		    				<TH><INPUT TYPE="radio" NAME="TOOL" VALUE=0.83>
+								<TH>
+							</tr>
+
+							<TR>
+								<TH>Plan de desarrollo requerido
+		    				<TH><INPUT TYPE="radio" NAME="SCED" CHECKED VALUE=1.23>
+								<TH><INPUT TYPE="radio" NAME="SCED" VALUE=1.08>
+								<TH><INPUT TYPE="radio" NAME="SCED" VALUE=1.00>
+								<TH><INPUT TYPE="radio" NAME="SCED" VALUE=1.04>
+								<TH><INPUT TYPE="radio" NAME="SCED" VALUE=1.10>
+								<TH>
+							</tr>
+	    		</TABLE>
+				</div>
+
+			<hr id="_3">
+			<span id="span_resultado"></span>
+			<div id="resultado" class="">
+				<h3>Esfuerzo obtenido</h3>
+				<INPUT class="btn btn-info" TYPE="button" VALUE="CALCULAR" ONCLICK="calcular()">
+	  		<INPUT id="resultado" class="form-control" TYPE="number" NAME="resultado">
+				<i>personas/mes</i>
+			</div>
+
+			<span id="span_empleados"></span>
+			<div id="empleados" class="">
+				<h3>Tiempo estimado a partir de numero de Empleados</h3>
+	  		<TABLE>
+	  			<TR>
+						<TH>Numero de personas:
+						<TH><INPUT TYPE="text" NAME="person">
+					</TR>
+
+					<TR>
+						<TH><INPUT class="btn btn-primary" NAME="button" TYPE="button" VALUE="CALCULAR"
+															ONCLICK="JavaScript:document.MInterm.tiempo.value=
+	  													redondeo(document.MInterm.resultado.value/document.MInterm.person.value);">
+	  				<TH><INPUT id="meses" TYPE="number" NAME="tiempo" VALUE=''>meses
+	  		</TABLE>
+			</div>
+		</FORM>
+	</BODY>
+</HTML>

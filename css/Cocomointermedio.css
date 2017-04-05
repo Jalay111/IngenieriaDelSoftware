@@ -1,0 +1,185 @@
+body{
+  background-image: url("../images/");
+  background-color: #F2F2F2;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#atras {
+    width: 4%;
+    height: 35px;
+    margin-top: 50px;
+    margin-left: 40px;
+    position: absolute;
+    font-size: 35px;
+    background: transparent;
+    border-width: 0px;
+    text-decoration: none;
+    -webkit-transition: all 0.2s ease;
+       -moz-transition: all 0.2s ease;
+         -o-transition: all 0.2s ease;
+        -ms-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+}
+
+#atras:hover {
+  webkit-transition: all 0.1s ease;
+     -moz-transition: all 0.1s ease;
+       -o-transition: all 0.1s ease;
+      -ms-transition: all 0.1s ease;
+          transition: all 0.1s ease;
+  transform: scale(1.2);
+}
+
+#titulo{
+  margin-top: 40px;
+  margin-left: 80px;
+  position: absolute;
+  font-size: 55px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+hr#_1{
+  position: absolute;
+  border-width: 2px;
+  width: 45%;
+  margin-left: 6%;
+  margin-top: 95px;
+  border-color: #FF5D00;
+}
+
+hr#_2{
+  position: absolute;
+  border-width: 2px;
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 300px;
+  border-color: #888888;
+}
+
+hr#_3{
+  position: absolute;
+  border-width: 2px;
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 1020px;
+  border-color: #888888;
+}
+
+div#tamaño {
+    position: absolute;
+    margin-top: 130px;
+    margin-left: 15%;
+    width: 30%;
+    text-align: center;
+}
+
+div#tipo {
+    position: absolute;
+    margin-top: 130px;
+    margin-left: 55%;
+    width: 30%;
+    text-align: center;
+}
+
+div#tabla {
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 10%;
+    width: 80%;
+    height: auto;
+    text-align: center;
+}
+
+#tabla h3{
+  margin-bottom: 30px;
+}
+
+#span_resultado {
+  position: absolute;
+  margin-top: 1050px;
+  margin-left: 10%;
+  width: 35%;
+  height: 220px;
+  padding: 30px;
+  background-color: #FF5D00;
+  padding-bottom: 10px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 19px -1px rgba(0,0,0,0.70);
+  -moz-box-shadow: 0px 0px 19px -1px rgba(0,0,0,0.70);
+  box-shadow: 0px 0px 19px -1px rgba(0,0,0,0.70);
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+div#resultado {
+  position: absolute;
+  margin-top: 1050px;
+  margin-left: 12.6%;
+  padding-top: 22px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 30%;
+  height: 220px;
+  background-color: #fff;
+  text-align: center;
+}
+
+div#empleados {
+    position: absolute;
+    margin-top: 1050px;
+    margin-left: 54.6%;
+    padding-top: 22px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 30%;
+    height: 220px;
+    background-color: #fff;
+    text-align: center;
+}
+
+input#resultado {
+    margin-top: 5px;
+    width: 40%;
+    margin-left: 30%;
+}
+
+#span_empleados{
+  position: absolute;
+  margin-top: 1050px;
+  margin-left: 52%;
+  width: 35%;
+  height: 220px;
+  padding: 30px;
+  background-color: #FF5D00;
+  padding-bottom: 10px;
+  border-radius: 8px;
+  margin-bottom: 50px;
+  -webkit-box-shadow: 0px 0px 19px -1px rgba(0,0,0,0.70);
+  -moz-box-shadow: 0px 0px 19px -1px rgba(0,0,0,0.70);
+  box-shadow: 0px 0px 19px -1px rgba(0,0,0,0.70);
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+input.btn.btn-primary {
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 35%;
+}
+
+input#meses {
+    margin-top: 5px;
+}
+
+input[type="number"] {
+    border: 1px solid #B5B5B5;
+    border-radius: 4px;
+}
